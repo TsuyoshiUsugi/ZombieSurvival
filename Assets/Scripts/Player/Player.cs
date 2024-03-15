@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private float _hp = 100;
     private GameObject _target;
     public float HP => _hp;
+    public Gun Gun => _gun;
     
     // Start is called before the first frame update
     void Start()

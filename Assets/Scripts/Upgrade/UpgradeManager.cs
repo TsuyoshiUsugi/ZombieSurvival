@@ -16,6 +16,8 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] GameObject _supplyDrop;
     [SerializeField] GameObject _soldier;
+    [SerializeField] OnPlayerUI _onPlayerUI;
+    
     public int UpgradePrice1 => _upgradePrice1;
     public int UpgradePrice2 => _upgradePrice2;
     public int UpgradePrice3 => _upgradePrice3;
@@ -41,8 +43,10 @@ public class UpgradeManager : MonoBehaviour
 
     private void SupplyDrop()
     {
+        Debug.Log("Supply Drop!");
         if (_gameManager.UseCoin(_upgradePrice1))
         {
+            _onPlayerUI.ShowMessage("Supply Drop!");
             Instantiate(_supplyDrop);
             _upgradePrice1 += _increacePrice;
         }
@@ -52,7 +56,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (_gameManager.UseCoin(_upgradePrice2))
         {
-      
+            _onPlayerUI.ShowMessage("Cool Time Down!");
             _upgradePrice2 += _increacePrice;
         }
     }
@@ -61,6 +65,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (_gameManager.UseCoin(_upgradePrice3))
         {
+            _onPlayerUI.ShowMessage("Reinforce!");
             Instantiate(_soldier);
             _upgradePrice3 += _increacePrice;
         }

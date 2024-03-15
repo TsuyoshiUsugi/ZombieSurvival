@@ -46,6 +46,11 @@ public class Gun : MonoBehaviour
         // _currentAmmo = _maxAmmo;
         // return rest - _maxAmmo;
     }
+    
+    public void AddDamage(int damage)
+    {
+        _damage += damage;
+    }
 
     private void Update()
     {
