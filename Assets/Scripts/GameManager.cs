@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _startTime = Time.time;
         _player.OnDestroyAsObservable().Subscribe(_ =>
         {
             _timeDisposable.Dispose();

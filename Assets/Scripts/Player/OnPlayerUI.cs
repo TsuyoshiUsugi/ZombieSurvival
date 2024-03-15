@@ -8,10 +8,16 @@ using UnityEngine.UI;
 public class OnPlayerUI : MonoBehaviour
 {
     [SerializeField] private Text _text;
+    
 
     private void Start()
     {
         _text.text = "";
+    }
+
+    private void Update()
+    {
+        _text.transform.LookAt(-Camera.main.transform.position);
     }
 
     public async UniTaskVoid ShowMessage(string message)
